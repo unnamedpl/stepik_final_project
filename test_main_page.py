@@ -16,4 +16,3 @@ def test_should_be_login_link(browser):
     page = MainPage(browser, link)
     page.open()
     page.should_be_login_link()
-
