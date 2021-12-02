@@ -30,7 +30,7 @@ class ProductPage(BasePage):
         price_product = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
         assert price_product_added == price_product, "Product price is different"
 
-    # Проверяем что нет сообщения о успешком добавлении в корзину
+    # Проверяем что нет сообщения о успешном добавлении в корзину
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
