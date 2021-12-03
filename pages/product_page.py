@@ -7,11 +7,16 @@ class ProductPage(BasePage):
     def should_be_add_button_to_basket(self):
         assert self.is_element_present(*ProductPageLocators.ADD_TO_BASKET), "Button 'Add to basket' is not presented"
 
-    # Добавляем товар в корзину и выводим код в консоль
-    def should_be_add_product_to_basket(self):
+    # Добавляем промо-товар в корзину с вводом в кода
+    def should_be_add_product_to_basket_with_captcha(self):
         button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         button.click()
-        # self.solve_quiz_and_get_code()
+        self.solve_quiz_and_get_code()
+
+    # Добавляем обычный товар в корзину бещ ввода кода
+    def user_should_be_add_product_to_basket_without_captcha(self):
+        button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
+        button.click()
 
     # Проверяем текст успешного добавления в корзину
     def should_be_success_message(self):
