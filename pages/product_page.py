@@ -13,7 +13,7 @@ class ProductPage(BasePage):
         button.click()
         self.solve_quiz_and_get_code()
 
-    # Добавляем обычный товар в корзину бещ ввода кода
+    # Добавляем обычный товар в корзину без ввода кода
     def user_should_be_add_product_to_basket_without_captcha(self):
         button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET)
         button.click()
@@ -40,7 +40,7 @@ class ProductPage(BasePage):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
 
-    # Проверяем что сообщение об супешном добавлении в корзину исчезает
+    # Проверяем что сообщение об успешном добавлении в корзину исчезает
     def should_be_disappear(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is not disappeared, but should be"
